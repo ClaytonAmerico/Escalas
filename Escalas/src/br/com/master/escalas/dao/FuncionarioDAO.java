@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import br.com.master.escalas.factory.ConnectionFactory;
 import br.com.master.escalas.model.Funcionario;
 
 @Repository
@@ -23,9 +25,10 @@ public class FuncionarioDAO {
 
 	private final Connection connection;
 
-	public FuncionarioDAO() {
+	@Autowired
+	public FuncionarioDAO(DataSource dataSource) {
 		try {
-			this.connection = new ConnectionFactory().getConnection();
+			this.connection = dataSource.getConnection();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -38,10 +41,8 @@ public class FuncionarioDAO {
 			pstm.setString(3, funcionario.getNome());
 			pstm.setString(4, funcionario.getCarteira());
 			pstm.setLong(5, funcionario.getIdH());
-			pstm.setInt(6, funcionario.getAtivo());
-			System.out.println("Passei no DAO");
+			pstm.setInt(6, funcionario.getSituacao());
 			pstm.execute();
-			System.out.println("Passei no Executei");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -59,7 +60,7 @@ public class FuncionarioDAO {
 					funcionario.setNome(rs.getString("NOME"));
 					funcionario.setCarteira(rs.getString("CARTEIRA"));
 					funcionario.setIdH(rs.getLong("ID_HORA"));
-					funcionario.setAtivo(rs.getInt("STATUS"));
+					funcionario.setSituacao(rs.getInt("SITUACAO"));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -76,8 +77,7 @@ public class FuncionarioDAO {
 			pstm.setLong(2, funcionario.getIdF());
 			pstm.setString(3, funcionario.getNome());
 			pstm.setString(4, funcionario.getCarteira());
-			pstm.setLong(5, funcionario.getIdH());
-			pstm.setInt(6, funcionario.getAtivo());
+			pstm.setInt(5, funcionario.getSituacao());
 			pstm.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -102,8 +102,7 @@ public class FuncionarioDAO {
 				funcionario.setIdF(rs.getLong("COD_FUN"));
 				funcionario.setNome(rs.getString("NOME"));
 				funcionario.setCarteira(rs.getString("CARTEIRA"));
-				funcionario.setIdH(rs.getLong("ID_HORA"));
-				funcionario.setAtivo(rs.getInt("STATUS"));
+				funcionario.setSituacao(rs.getInt("SITUACAO"));
 				funcionarios.add(funcionario);
 			}
 			return funcionarios;

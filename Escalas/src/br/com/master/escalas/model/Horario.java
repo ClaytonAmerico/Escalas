@@ -5,8 +5,8 @@ import java.sql.Time;
 public class Horario {
 	
 	private Long idH;
-	private Time horaIni;
-	private Time horaFin;
+	private Time inicio;
+	private Time termino;
 	
 	public Long getIdH() {
 		return idH;
@@ -14,17 +14,17 @@ public class Horario {
 	public void setIdH(Long idH) {
 		this.idH = idH;
 	}
-	public Time getHoraIni() {
-		return horaIni;
+	public Time getInicio() {
+		return inicio;
 	}
-	public void setHoraIni(Time horaIni) {
-		this.horaIni = horaIni;
+	public void setInicio(Time inicio) {
+		this.inicio = inicio;
 	}
-	public Time getHoraFin() {
-		return horaFin;
+	public Time getTermino() {
+		return termino;
 	}
-	public void setHoraFin(Time horaFin) {
-		this.horaFin = horaFin;
+	public void setTermino(Time termino) {
+		this.termino = termino;
 	}
 	
 }

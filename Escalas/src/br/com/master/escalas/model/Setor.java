@@ -11,10 +11,10 @@ public class Setor {
 	public void setIdS(Long idS) {
 		this.idS = idS;
 	}
-	public String getDesc() {
+	public String getNome() {
 		return nome;
 	}
-	public void setDesc(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	

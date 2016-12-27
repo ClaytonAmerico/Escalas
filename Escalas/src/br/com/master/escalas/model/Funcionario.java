@@ -1,13 +1,29 @@
 package br.com.master.escalas.model;
 
+import javax.validation.constraints.Size;
+
+import com.sun.istack.internal.NotNull;
+
 public class Funcionario {
 
+	@NotNull
 	private Long    idS;
+	
+	@NotNull
 	private Long    idF;
+	
+	@NotNull//(message="{tarefa.descricao.vazia}")
+	@Size(min=5)
 	private String  nome;
+	
+	@NotNull
 	private String  carteira;
+	
+	@NotNull
 	private Long    idH;
-	private int     ativo;
+	
+	@NotNull 
+	private int     situacao;
 	
 	public Long getIdS() {
 		return this.idS;
@@ -42,19 +58,18 @@ public class Funcionario {
 	}
 	
 	public Long getIdH() {
-		return this.idH;
+		return idH;
 	}
 
 	public void setIdH(Long idH) {
 		this.idH = idH;
 	}
 	
-	public int getAtivo() {
-		return ativo;
+	public int getSituacao() {
+		return situacao;
 	}
 
-	public void setAtivo(int ativo) {
-		this.ativo = ativo;
+	public void setSituacao(int ativo) {
+		this.situacao = ativo;
 	}
-
 }
