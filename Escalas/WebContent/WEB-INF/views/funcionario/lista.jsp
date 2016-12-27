@@ -18,6 +18,7 @@
 			<th>Nome</th>
 			<th>Carteira</th>
 			<th>Ativo</th>
+			<th>Remover</th>
 		</tr>
 		<c:forEach items="${funcionarios}" var="funcionario">
 			<tr>
@@ -30,6 +31,7 @@
 				<c:if test="${funcionario.situacao == 1}">
 					<td>Sim</td>
 				</c:if>
+				<td><a href="removeFuncionario?idF=${funcionario.idF}">Remover Funcionário</a></td>
 				<!-- <td>
 				<fmt:formatDate value="${tarefa.dataFinalizacao.time}" pattern="dd/MM/yyyy"/>
 				</td>  -->

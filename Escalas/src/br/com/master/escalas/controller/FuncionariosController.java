@@ -25,8 +25,7 @@ public class FuncionariosController {
 	}
 
 	@RequestMapping("adicionaFuncionario")
-	public String adiciona(@Valid Funcionario funcionario, BindingResult result, @RequestParam(value = "idS") Long idS,
-			@RequestParam(value = "ativo") String ativo) {
+	public String adiciona(@Valid Funcionario funcionario, BindingResult result, @RequestParam(value = "idS") Long idS, @RequestParam(value = "ativo") String ativo) {
 		
 		if(result.hasFieldErrors("nome")) {
 			return "funcionario/formulario";
@@ -54,6 +53,17 @@ public class FuncionariosController {
 		return "funcionario/formulario";
 	}
 	
+	@RequestMapping("removeFuncionario")
+	public String remove(Funcionario funcionario) {
+		dao.remove(funcionario);
+		return "redirect: listaFuncionarios";
+	}
+	
+	@RequestMapping("mostraFuncionario")
+	public String mostra(Long idF, Model model) {
+		model.addAttribute("funcionario", dao.select(idF));
+		return "funcionario/mostra";
+	}
 
 	/*
 	 @RequestMapping("addFuncionario") 

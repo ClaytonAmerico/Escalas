@@ -18,9 +18,9 @@ import br.com.master.escalas.model.Funcionario;
 public class FuncionarioDAO {
 
 	private static final String C_INSERT = "insert into ESC_FUNCIONARIO (ID_SETOR, COD_FUN, NOME, CARTEIRA, ID_HORA, SITUACAO) values (?, ?, ?, ?, ?, ?)";
-	private static final String R_SELECT = "select CODIGO NOME CARTEIRA ID_SETOR STATUS from ESC_FUNCIONARIO where ID = ?";
-	private static final String U_UPDATE = "update ESC_FUNCIONARIO set CODIGO = ?, NOME = ?, CARTEIRA = ?, ID_SETOR = ?, STATUS = ? where ID = ?";
-	private static final String D_REMOVE = "delete from ESC_FUNCIONARIO where ID = ?";
+	private static final String R_SELECT = "select ID_SETOR, COD_FUN NOME CARTEIRA ID_HORA SITUACAO from ESC_FUNCIONARIO where COD_FUN = ?";
+	private static final String U_UPDATE = "update ESC_FUNCIONARIO set COD_FUN = ?, NOME = ?, CARTEIRA = ?, ID_HORA = ?, SITUACAO = ? where COD_FUN = ?";
+	private static final String D_REMOVE = "delete from ESC_FUNCIONARIO where COD_FUN = ?";
 	private static final String FIND_ALL = "select * from ESC_FUNCIONARIO";
 
 	private final Connection connection;

@@ -19,11 +19,11 @@
 			</c:forEach>
 		</select> <br/> 
 		Código <br /> 
-		<input type="text" name="idF" placeholder="Código do Funcioário" /> <br /> 
+		<input type="text" name="idF" placeholder="Somente Números" /> <br /> 
 		Nome <br>
-		<textarea name="nome" rows="1" cols="100"></textarea> <br /> 
+		<textarea name="nome" rows="1" cols="100" placeholder="Nome do Funcionário" ></textarea> <br /> 
 		Carteira <br> 
-		<input name="carteira" /> <br/>
+		<input name="carteira" placeholder="Carteira de Trabalho" /> <br/>
 		Horário <br/>
 		<select name="idH">
 			<c:forEach items="${horarios}" var="horario">

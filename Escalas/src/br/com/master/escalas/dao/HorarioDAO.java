@@ -21,7 +21,7 @@ public class HorarioDAO {
 	private static final String R_SELECT = "select ID INICIO TERMINO from ESC_HORARIO where ID = ?";
 	private static final String U_UPDATE = "update ESC_HORARIO set INICIO = ?, TERMINO = ? where ID = ?";
 	private static final String D_REMOVE = "delete from ESC_SETOR where ID = ?";
-	private static final String FIND_ALL = "select * from ESC_HORARIO";
+	private static final String FIND_ALL = "select * from ESC_HORARIO order by INICIO";
 
 	private Connection connection;
 	
